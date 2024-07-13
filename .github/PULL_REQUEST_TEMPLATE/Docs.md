@@ -1,3 +1,10 @@
+---
+name: 문서 생성
+about: 생성된 문서에 대해서 작성해주세요
+title: "[Docs] 간결한 제안 내용"
+labels: documentation
+assignees: ''
+---
 ## 📚 제목 (Docs): [간결한 문서 수정 내용]
 
 ## 📝 상세 설명
