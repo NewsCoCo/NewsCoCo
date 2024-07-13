@@ -1,5 +1,5 @@
 ---
-name: 질문
+name: 질문 생성
 about: 질문을 남겨주세요.
 title: "[Question] 간결한 질문 내용"
 labels: question
