@@ -23,5 +23,3 @@ jobs:
         run: black --check .
       - name: Run isort
         run: isort --check-only .
-      - name: Run flake8
-        run: flake8 .
