@@ -1,0 +1,74 @@
+# version: "3.11"
+services:
+  app: # Django
+    build:
+      context: .
+      args:
+        - DEV=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./newscoco:/app
+    command: sh -c "python manage.py migrate &&
+                    python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    env_file:
+      - .env  
+    depends_on:
+      - db
+
+  db: # PostgreSQL Database
+    image: postgres:16-alpine
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+     - POSTGRES_DB=${POSTGRES_DB}
+     - POSTGRES_USER=${POSTGRES_USER}
+     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+
+  scraper: # Scraping Service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PORT=${DB_PORT}
+      - DJANGO_SETTINGS_MODULE=app.settings
+      - PYTHONPATH=/app    
+    depends_on:
+      - db
+      - app
+    env_file:
+      - .env
+    entrypoint: ["python", "/app/scrap.py"]
+  
+  # cron: # 크론 서비스 추가
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile  # scraper와 동일한 Dockerfile 사용
+  #   environment:
+  #     - DB_HOST=${DB_HOST}
+  #     - DB_NAME=${DB_NAME}
+  #     - DB_USER=${DB_USER}
+  #     - DB_PASSWORD=${DB_PASSWORD}
+  #     - DB_PORT=${DB_PORT}
+  #     - DJANGO_SETTINGS_MODULE=app.settings
+  #     - PYTHONPATH=/app
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - db
+  #     - app
+  #   command: /bin/sh -c "while true; do for i in 6 11 17 22; do echo 'Start scraping at hour $i' && python /app/scrap.py; sleep 3600; done; sleep 18000; done"
+
+volumes:
+  postgres_data : 
