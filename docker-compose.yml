@@ -32,24 +32,24 @@ services:
     env_file:
       - .env
 
-  scraper: # Scraping Service
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - DB_HOST=${DB_HOST}
-      - DB_NAME=${DB_NAME}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_PORT=${DB_PORT}
-      - DJANGO_SETTINGS_MODULE=app.settings
-      - PYTHONPATH=/app    
-    depends_on:
-      - db
-      - app
-    env_file:
-      - .env
-    entrypoint: ["python", "/app/scrap.py"]
+  # scraper: # Scraping Service
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     - DB_HOST=${DB_HOST}
+  #     - DB_NAME=${DB_NAME}
+  #     - DB_USER=${DB_USER}
+  #     - DB_PASSWORD=${DB_PASSWORD}
+  #     - DB_PORT=${DB_PORT}
+  #     - DJANGO_SETTINGS_MODULE=app.settings
+  #     - PYTHONPATH=/app    
+  #   depends_on:
+  #     - db
+  #     - app
+  #   env_file:
+  #     - .env
+  #   entrypoint: ["python", "/app/scrap.py"]
   
   # cron: # 크론 서비스 추가
   #   build:
