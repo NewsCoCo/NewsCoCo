@@ -14,11 +14,8 @@
 
 ## 📌 주제
 
-## 📌 주제
 
 각 분야별 뉴스를 모아 분야별, 키워드별 뉴스를 제공해주는 사이트
-
-## 🎯 Goal
 
 ## 🎯 Goal
 
@@ -28,18 +25,6 @@
 - 데이터 서빙을 위한 백엔드 API 개발
 - 유저의 입장에서 어떤 식의 데이터가 필요할지 생각해보고 그에 맞춘 API 설계
 - 작성한 코드 검증을 위한 테스트 코드 작성방법 익히기
-
-## 🚀 Technical Skills Used
-
-(작성 예정)
-
-## 👥 Collaborators
-
-| [<img src="https://avatars.githubusercontent.com/u/87454608?v=4" width="100">](https://github.com/JoonHoSeong) | [<img src="https://avatars.githubusercontent.com/u/164486991?v=4" width="100">](https://github.com/dayeonkimm) | [<img src="https://avatars.githubusercontent.com/u/84219820?v=4" width="100">](https://github.com/LSY310) | [<img src="https://avatars.githubusercontent.com/u/164474193?v=4" width="100">](https://github.com/siangit) |
-|:---:|:---:|:---:|:---:|
-| [JoonHoSeong](https://github.com/JoonHoSeong) | [dayeonkimm](https://github.com/dayeonkimm) | [LIM0310](https://github.com/LSY310) | [SIANNI](https://github.com/siangit) |
-
-## 📋 Guide
 
 ## 🚀 Technical Skills Used
 
@@ -67,24 +52,8 @@
 - [ ] 전체 사이트의 인기게시글 요약본 (헤드라인, 링크) 제공 API
 - [ ] 지정한 사이트의 인기게시글 요약본 (헤드라인, 링크) 제공 API
 - [ ] 그외 제공하면 좋을 거같은 API 목록을 추출해서 작성 (예시. 주간 베스트 게시글, 월간 베스트 게시글 등)
-## ✅ To-Do List
 
-- [ ] README.md 파일에 최초 git clone 이후 실행 방법 작성 (패키지 인스톨, 설정 등)
-- [ ] README.md 파일에 각 API별 파라미터(필수,선택 등 구분), 결과값, 에러 시 응답 값 정리
-- [ ] README.md 파일에 기술스택 작성 (ORM, 웹프레임워크, Panda 등 사용한 기술목록)
-- [ ] README.md 파일에 폴더 구조 설명 (각 폴더별 어떤 목적으로 사용되는지 등)
-- [ ] README.md 파일 스크래핑 하는 사이트 목록 작성
-- [ ] 스크래핑하는 사이트 목록 제공 API
-- [ ] 전체 사이트의 인기게시글 요약본 (헤드라인, 링크) 제공 API
-- [ ] 지정한 사이트의 인기게시글 요약본 (헤드라인, 링크) 제공 API
-- [ ] 그외 제공하면 좋을 거같은 API 목록을 추출해서 작성 (예시. 주간 베스트 게시글, 월간 베스트 게시글 등)
 
-## 🛠 Usage
-
-1. Clone the project into your local repository:
-   ```
-   git clone https://github.com/NewsCoCo/NewsCoCo.git
-   ```
 ## 🛠 Usage
 
 1. Clone the project into your local repository:
