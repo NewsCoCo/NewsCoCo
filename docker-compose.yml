@@ -12,25 +12,13 @@ services:
     command: sh -c "python manage.py migrate &&
                     python manage.py runserver 0.0.0.0:8000"
     environment:
-      - DB_HOST=${DB_HOST}
-      - DB_NAME=${DB_NAME}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-    env_file:
-      - .env  
-    depends_on:
-      - db
-
-  db: # PostgreSQL Database
-    image: postgres:16-alpine
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
-    environment:
-     - POSTGRES_DB=${POSTGRES_DB}
-     - POSTGRES_USER=${POSTGRES_USER}
-     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_HOST=${RDS_HOSTNAME} # RDS 엔드포인트
+      - DB_NAME=${RDS_DB_NAME}
+      - DB_USER=${RDS_USERNAME}
+      - DB_PASSWORD=${RDS_PASSWORD}
     env_file:
       - .env
+
 
   # scraper: # Scraping Service
   #   build:
@@ -45,7 +33,6 @@ services:
   #     - DJANGO_SETTINGS_MODULE=app.settings
   #     - PYTHONPATH=/app    
   #   depends_on:
-  #     - db
   #     - app
   #   env_file:
   #     - .env
